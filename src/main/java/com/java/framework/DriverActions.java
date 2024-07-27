@@ -62,6 +62,32 @@ public class DriverActions {
 		return flag;
 	}
 	
+	public boolean clearEnterText(By locator, String text) {
+		boolean flag=false;
+		try {
+			WebElement element=driver.findElement(locator);
+			element.clear();
+			element.sendKeys(text);
+			flag=true;
+		}catch(Exception ex) {
+			flag=false;
+			ex.printStackTrace();
+		}
+		return flag;
+	}
+	
+	public boolean clear(By locator) {
+		boolean flag=false;
+		try {
+			driver.findElement(locator).clear();
+			flag=true;
+		}catch(Exception ex) {
+			flag=false;
+			ex.printStackTrace();
+		}
+		return flag;
+	}
+	
 	public boolean waitForElement(By locator) {
 		boolean flag=false;
 		try {

@@ -13,5 +13,6 @@ public class LoginPage {
 	public By passwordLocBy=By.id("password");
 	public By loginBtnLocBy=By.id("login-button");
 	public By productsLocBy=By.xpath("//span[text()='Products']");
+	public By loginErrorLocBy=By.xpath("//h3[@data-test='error']");
 	
 }

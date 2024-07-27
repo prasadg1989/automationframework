@@ -26,31 +26,46 @@ public class LoginTests {
   }
   @AfterTest
   public void afterTest() {
-	  driver.close();
+	  driver.quit();
   }
   
   @Test(groups= {"RegressionTest", "SmokeTest"})
   public void validLogin() {
 	  driverActions.waitForElement(loginPage.userNameLocBy);
-	  driverActions.enterText(loginPage.userNameLocBy, "standard_user");
-	  driverActions.enterText(loginPage.passwordLocBy, "secret_sauce");
+	  driverActions.clearEnterText(loginPage.userNameLocBy, "standard_user");
+	  driverActions.clearEnterText(loginPage.passwordLocBy, "secret_sauce");
 	  driverActions.click(loginPage.loginBtnLocBy);
 	  driverActions.waitForElement(loginPage.productsLocBy);
   }
   
   @Test(groups= {"RegressionTest", "SmokeTest"})
   public void emptyLogin() {
-	  
+	  driverActions.waitForElement(loginPage.userNameLocBy);
+	  driverActions.clear(loginPage.userNameLocBy);
+	  driverActions.clear(loginPage.passwordLocBy);
+	  driverActions.click(loginPage.loginBtnLocBy);
+	  driverActions.waitForElement(loginPage.loginErrorLocBy);
+	  driverActions.VerifyMessage(loginPage.loginErrorLocBy, "Epic sadface: Username is required");
   }
   
   @Test(groups= {"RegressionTest"})
   public void inValidPasswordLogin() {
-	  
+	  driverActions.waitForElement(loginPage.userNameLocBy);
+	  driverActions.clearEnterText(loginPage.userNameLocBy, "standard_user");
+	  driverActions.clearEnterText(loginPage.passwordLocBy, "InvalidPassword");
+	  driverActions.click(loginPage.loginBtnLocBy);
+	  driverActions.waitForElement(loginPage.loginErrorLocBy);
+	  driverActions.VerifyMessage(loginPage.loginErrorLocBy, "Epic sadface: Username and password do not match any user in this service");
   }
   
   @Test(groups= {"RegressionTest"})
   public void inValidUserNameLogin() {
-	  
+	  driverActions.waitForElement(loginPage.userNameLocBy);
+	  driverActions.clearEnterText(loginPage.userNameLocBy, "standard_user");
+	  driverActions.clearEnterText(loginPage.passwordLocBy, "InvalidPassword");
+	  driverActions.click(loginPage.loginBtnLocBy);
+	  driverActions.waitForElement(loginPage.loginErrorLocBy);
+	  driverActions.VerifyMessage(loginPage.loginErrorLocBy, "Epic sadface: Username and password do not match any user in this service");
   }
 
 }

@@ -4,6 +4,7 @@ import org.testng.annotations.Test;
 
 import com.java.framework.DriverActions;
 import com.java.framework.DriverManager;
+import com.java.framework.Utils;
 import com.java.pages.LoginPage;
 
 import org.testng.annotations.BeforeTest;
@@ -16,12 +17,14 @@ public class LoginTests {
 	DriverManager driverManager;
 	DriverActions driverActions;
 	LoginPage loginPage;
+	Utils utils;
   @BeforeTest
   public void beforeTest() {
 	  driverManager=new DriverManager();
 	  driver=driverManager.getDriver("chrome");
 	  loginPage=new LoginPage(driver);
 	  driverActions=new DriverActions(driver);
+	  utils=new Utils();
 	  driver.get("https://www.saucedemo.com/");
   }
   @AfterTest
@@ -34,6 +37,7 @@ public class LoginTests {
 	  driverActions.waitForElement(loginPage.userNameLocBy);
 	  driverActions.clearEnterText(loginPage.userNameLocBy, "standard_user");
 	  driverActions.clearEnterText(loginPage.passwordLocBy, "secret_sauce");
+	  utils.takeScreenshot(driver);
 	  driverActions.click(loginPage.loginBtnLocBy);
 	  driverActions.waitForElement(loginPage.productsLocBy);
   }

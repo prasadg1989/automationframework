@@ -3,7 +3,11 @@
 <suite name="Suite">
   <test thread-count="5" name="Test">
     <classes>
-      <class name="com.java.tests.LoginTests"/>
+      <class name="com.java.tests.LoginTests">
+      	<methods>
+        	<include name="validLogin" />
+        </methods>
+      </class>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

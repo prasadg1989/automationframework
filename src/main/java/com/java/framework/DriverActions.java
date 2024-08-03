@@ -23,6 +23,7 @@ public class DriverActions {
 			flag=false;
 			ex.printStackTrace();
 		}
+		Log.reportResult(flag, "Successfully Clicked on the Element", "Failed to Click on the Element");
 		return flag;
 	}
 	
@@ -35,6 +36,7 @@ public class DriverActions {
 			flag=false;
 			ex.printStackTrace();
 		}
+		Log.reportResult(flag, "Successfully Clicked on the Element", "Failed to Click on the Element");
 		return flag;
 	}
 	
@@ -47,6 +49,7 @@ public class DriverActions {
 			flag=false;
 			ex.printStackTrace();
 		}
+		Log.reportResult(flag, "Successfully Entered the Text: "+text, "Failed to Enter the Text: "+text);
 		return flag;
 	}
 	
@@ -59,6 +62,7 @@ public class DriverActions {
 			flag=false;
 			ex.printStackTrace();
 		}
+		Log.reportResult(flag, "Successfully Entered the Text: "+text, "Failed to Enter the Text: "+text);
 		return flag;
 	}
 	
@@ -73,6 +77,7 @@ public class DriverActions {
 			flag=false;
 			ex.printStackTrace();
 		}
+		Log.reportResult(flag, "Successfully Cleared and Entered the Text: "+text, "Failed to Clear and Enter the Text: "+text);
 		return flag;
 	}
 	
@@ -85,6 +90,7 @@ public class DriverActions {
 			flag=false;
 			ex.printStackTrace();
 		}
+		Log.reportResult(flag, "Successfully Cleared the Text", "Failed to Clear the Text");
 		return flag;
 	}
 	
@@ -98,6 +104,7 @@ public class DriverActions {
 			flag=false;
 			ex.printStackTrace();
 		}
+		Log.reportResult(flag, "Successfully waited for the Element", "Failed to wait for the Element");
 		return flag;
 	}
 	
@@ -111,6 +118,7 @@ public class DriverActions {
 			flag=false;
 			ex.printStackTrace();
 		}
+		Log.reportResult(flag, "Successfully Verified the Message: "+expectedMessage, "Failed to verify the Message: "+expectedMessage);
 		return flag;
 	}
 	

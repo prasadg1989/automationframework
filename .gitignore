@@ -1,1 +1,4 @@
 /test-output/
+/target/classes/*
+/target/classes/com/java/framework/
+/target/test-classes/*
